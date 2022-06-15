@@ -4,6 +4,6 @@ const EventPage = ({}) => {
 
 export default EventPage;
 
-export const getStatisPaths = ({ context }) => {};
+export const getStaticPaths = ({ context }) => {};
 
 export const getStaticProps = ({ context }) => {};
