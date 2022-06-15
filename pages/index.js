@@ -11,7 +11,6 @@ export default function Home() {
 
   useEffect(() => {
     setEventsToShow(getEventByDate(selectedDate));
-    console.log("eventToShow", eventsToShow);
   }, [selectedDate]);
 
   return (
