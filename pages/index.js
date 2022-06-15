@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import Calendar from "../src/components/Calendar";
 import EventsList from "../src/components/EventsList";
 import { getEventByDate } from "../src/db/eventsDB";
+import { textToUrl } from "../src/utils/functions";
 
 export default function Home() {
   const [selectedDate, setSelectedtDate] = useState(new Date());
   const [eventsToShow, setEventsToShow] = useState([]);
-  console.log("selectedDate", selectedDate);
 
   useEffect(() => {
     setEventsToShow(getEventByDate(selectedDate));

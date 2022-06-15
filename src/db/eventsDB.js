@@ -48,3 +48,9 @@ export const getEventByDate = (date) => {
       event.date.getFullYear() == date.getFullYear()
   );
 };
+
+export const getEventById = (id) => {
+  return eventsDB.find((event) => event.id == id);
+};
+
+export const getAllEvents = () => eventsDB;
