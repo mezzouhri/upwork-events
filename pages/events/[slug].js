@@ -2,7 +2,7 @@ import { getAllEvents, getEventById } from "../../src/db/eventsDB";
 import { textToUrl } from "../../src/utils/functions";
 
 const EventPage = ({ event }) => {
-  return <div>{event.title}</div>;
+  return <div>{event?.title}</div>;
 };
 
 export default EventPage;
@@ -16,7 +16,7 @@ export const getStaticPaths = () => {
 
   return {
     paths,
-    fallback: true, // false or 'blocking'
+    fallback: false, // false or 'blocking'
   };
 };
 
