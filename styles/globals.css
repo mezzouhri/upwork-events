@@ -63,7 +63,7 @@ a {
 }
 
 .react-datepicker__week {
-  @apply flex justify-around;
+  @apply flex justify-around space-x-5;
 }
 
 .react-datepicker__day-names {
@@ -75,7 +75,7 @@ a {
 }
 
 .react-datepicker__day {
-  @apply mb-1 w-10 h-7 flex items-center justify-center py-1 text-sm font-bold  text-gray-700 hover:bg-primary/30 hover:rounded-full;
+  @apply mb-1 w-6 h-5  flex items-center justify-center py-1 text-sm font-bold  text-gray-700 hover:bg-primary/30 hover:rounded-full;
 }
 
 .react-datepicker__day--disabled {
