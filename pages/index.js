@@ -23,7 +23,7 @@ export default function Home() {
       </Head>
       <div className="min-h-screen flex flex-col ">
         <div className="max-w-7xl mx-auto h-full w-full px-2 flex-grow  space-x-10">
-          <div className="flex flex-col-reverse sm:flex-row mt-16 space-x-6">
+          <div className="flex flex-col-reverse sm:flex-row mt-16 space-x-6 ">
             <EventsList events={eventsToShow} />
             <Calendar {...{ selectedDate, setSelectedtDate }} />
           </div>
