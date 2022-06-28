@@ -1,11 +1,28 @@
 import Link from "next/link";
-import { textToUrl } from "./../utils/functions";
+import { useRouter } from "next/router";
+import { textToUrl } from "../utils/functions";
+
+const monthNames = [
+  "JAN",
+  "FEB",
+  "MAR",
+  "APR",
+  "MAY",
+  "JUN",
+  "JUL",
+  "AUG",
+  "SEP",
+  "OCT",
+  "NOV",
+  "DEC",
+];
 
 const EventsList = ({ events }) => {
+  const router = useRouter();
   return (
-    <section className="grow flex flex-col space-y-6 px-3">
-      <span className=" text-4xl font-bold shrink ">Calendar</span>
-      <div className="basis-0 grow overflow-y-auto flex flex-col text-base">
+    <section className="flex grow flex-col space-y-6 md:px-3">
+      <span className=" shrink text-3xl font-medium ">Calendar</span>
+      <div className=" scrollbar flex flex-col overflow-y-auto  sm:grow sm:basis-0">
         {events &&
           events.map((event) => (
             <Link
@@ -13,11 +30,13 @@ const EventsList = ({ events }) => {
               key={event.id}
             >
               <a>
-                <div className="h-14 flex flex-row items-center cursor-pointer px-2 sm:px-0 first:border-t last:border-b font-medium">
-                  <div className="grow ">{event.title}</div>
-                  <div className="text-sm text-primary  ">{`${event.date.getDate()}/${
-                    event.date.getMonth() + 1
-                  }/${event.date.getFullYear()}`}</div>
+                <div className=" flex  h-16 cursor-pointer flex-row items-center px-1 first:border-t last:border-b sm:px-0 sm:font-medium">
+                  <div className="mr-2 flex-1 truncate text-sm sm:text-xs mdplus:text-base">
+                    {event.title} <span className="text-project-700">&gt;</span>
+                  </div>
+                  <div className=" mr-0 text-right text-xs text-project-700 sm:mr-2 md:mr-3 mdplus:text-sm">{`${event.date.getDate()} ${
+                    monthNames[event.date.getMonth()]
+                  } ${event.date.getFullYear()}`}</div>
                 </div>
               </a>
             </Link>

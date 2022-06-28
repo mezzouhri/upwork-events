@@ -7,11 +7,12 @@ import { getEventByDate } from "../src/db/eventsDB";
 import { textToUrl } from "../src/utils/functions";
 
 export default function Home() {
-  const [selectedDate, setSelectedtDate] = useState(new Date());
+  const [selectedDate, setSelectedtDate] = useState(undefined);
   const [eventsToShow, setEventsToShow] = useState([]);
 
   useEffect(() => {
     setEventsToShow(getEventByDate(selectedDate));
+    setSelectedtDate(selectedDate);
   }, [selectedDate]);
 
   return (
@@ -23,7 +24,7 @@ export default function Home() {
       </Head>
       <div className="min-h-screen flex flex-col ">
         <div className="max-w-7xl mx-auto h-full w-full px-2 flex-grow  space-x-10">
-          <div className="flex flex-col-reverse sm:flex-row mt-16 space-x-6 ">
+          <div className="mt-16 flex flex-col-reverse space-x-6 sm:flex-row">
             <EventsList events={eventsToShow} />
             <Calendar {...{ selectedDate, setSelectedtDate }} />
           </div>
